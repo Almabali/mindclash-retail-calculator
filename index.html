@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="styles.css">
 <style type="text/css">
-
 </style>
 <script type="text/javascript">
+    const price_Anachrony
     function updateOutput() {
         var form = document.getElementById("calc");
         var out = form.elements["z"];
         var num1 = parseInt(form.elements["x"].value);
         var num2 = parseInt(form.elements["y"].value);
 
-        out.value=100*num1+70*num2;
+        out.value= 100*num1+70*num2;
     }
 </script>
 </head>
 <body>
+    <img src="mcg_banner.PNG">
+    <h1>Mindclash Games Price Calculator</h1>
     <form id="calc" oninput="updateOutput()">
         <div>
         <label for="x">Anachrony</label>
@@ -28,8 +31,6 @@
 
         <output name="z" for="x y">0</output>
     </form>
-                
-
-
 </body>
+<footer>Version 1.0</footer>
 </html>
