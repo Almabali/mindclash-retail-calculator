@@ -5,14 +5,60 @@
 <style type="text/css">
 </style>
 <script type="text/javascript">
-    const price_Anachrony
     function updateOutput() {
         var form = document.getElementById("calc");
         var out = form.elements["z"];
-        var num1 = parseInt(form.elements["x"].value);
-        var num2 = parseInt(form.elements["y"].value);
+        var outKsDiff = form.elements["ksdiff"];
+        var ks = parseInt(form.elements["ks"].value);
+        var freeCred = parseInt(form.elements["freeCred"].value);
 
-        out.value= 100*num1+70*num2;
+        var a1 = parseInt(form.elements["a1"].value);
+        var a2 = parseInt(form.elements["a2"].value);
+        var a3 = parseInt(form.elements["a3"].value);
+
+        var c1 = parseInt(form.elements["c1"].value);
+        var c2 = parseInt(form.elements["c2"].value);
+        var c3 = parseInt(form.elements["c3"].value);
+
+        var ao1 = parseInt(form.elements["ao1"].value);
+        var ao2 = parseInt(form.elements["ao2"].value);
+        var ao3 = parseInt(form.elements["ao3"].value);
+        var ao4 = parseInt(form.elements["ao4"].value);
+        var ao5 = parseInt(form.elements["ao5"].value);
+        var ao6 = parseInt(form.elements["ao6"].value);
+
+        var a1p = 150;
+        var a2p = 60;
+        var a3p = 45;
+
+
+        var c1p = 41.5;
+        var c2p = 30;
+        var c3p = 15;
+
+        var ao1p = 19;
+        var ao2p = 25;
+        var ao3p = 5;
+        var ao4p = 5;
+        var ao5p = 15;
+        var ao6p = 3;
+
+        var unchangingpart = c1p*c1 + c2p*c2 + c3p*c3 + ao1p*ao1+ao2p*ao2+ao3p*ao3+ao4p*ao4+ao5p*ao5+ao6p*ao6;
+        var priorsum = a1p*a1+ a2p*a2 + a3p*a3 + unchangingpart;
+
+        if (a1 >= 6) { a1p = 135};
+        if (a1 >= 12) { a1p = 132};
+        if (a2 >= 6) { a2p = 55};
+        if (a2 >= 12) { a2p = 53};
+        if (a3 >= 6) { a3p = 29};
+        if (a3 >= 12) { a3p = 27};
+
+        var postsum = a1p*a1+ a2p*a2 + a3p*a3 + unchangingpart;
+
+        out.value = postsum;
+        outKsDiff.value = postsum - ks;
+        freeCred.value = priorsum - postsum;
+
     }
 </script>
 </head>
@@ -20,15 +66,48 @@
     <img src="mcg_banner.PNG">
     <h1>Mindclash Games Price Calculator</h1>
     <form id="calc" oninput="updateOutput()">
-        <div>
-        <label for="x">Anachrony</label>
-        <input name="x" type="number" value="0" />
+    <div>
+        <h2>Kickstarter pledges</h2>
+        <label for="ks">USD pledged so far:</label>
+        <input name="ks" type="number" value="0" />
+        Remaining USD to be paid via PM:
+        <output name="ksdiff" for="ks">0</output>
+        <output name="freeCred" for="ks">0</output>
     </div>
     <div>
-        <label for="y">Cerebria</label>
-        <input name="y" type="number" value="0" />
+        <h2>Anachrony</h2>
+        <label for="a1">Anachrony Infinity Box</label>
+        <input name="a1" type="number" value="0" />
+        <label for="a2">Anachrony Infinity Upgrade Pack</label>
+        <input name="a2" type="number" value="0" />
+        <label for="a3">Anachrony: Fractures of Time</label>
+        <input name="a3" type="number" value="0" />
     </div>
-
+    <div>
+        <h2>Cerebria</h2>
+        <label for="c1">Cerebria: The Inside World</label>
+        <input name="c1" type="number" value="0" />
+        <label for="c2">Cerebria: Forces of Balance expansion</label>
+        <input name="c2" type="number" value="0" />
+        <label for="c3">Cerebria - The Card Game</label>
+        <input name="c3" type="number" value="0" />
+    </div>
+    <div>
+        <h2>Add-ons</h2>
+        <label for="ao1">Metal Resource Cube Pack (65pcs)</label>
+        <input name="ao1" type="number" value="0" />
+        <label for="ao2">Metal Resource Cube Pack (80pcs)</label>
+        <input name="ao2" type="number" value="0" />
+        <label for="ao3">Plastic Waterdrops)</label>
+        <input name="ao3" type="number" value="0" />
+        <label for="ao4">Promo Pack</label>
+        <input name="ao4" type="number" value="0" />
+        <label for="ao5">Resin Energy Source Pack</label>
+        <input name="ao5" type="number" value="0" />
+        <label for="ao6">Resource Cube Pack</label>
+        <input name="ao6" type="number" value="0" />       
+    </div>
+        <h2>Sum to be paid:</h2>
         <output name="z" for="x y">0</output>
     </form>
 </body>
