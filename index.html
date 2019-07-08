@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+    function updateOutput() {
+        var form = document.getElementById("calc");
+        var out = form.elements["z"];
+        var num1 = parseInt(form.elements["x"].value);
+        var num2 = parseInt(form.elements["y"].value);
+
+        out.value=100*num1+70*num2;
+    }
+</script>
+</head>
+<body>
+    <form id="calc" oninput="updateOutput()">
+        <div>
+        <label for="x">Anachrony</label>
+        <input name="x" type="number" value="0" />
+    </div>
+    <div>
+        <label for="y">Cerebria</label>
+        <input name="y" type="number" value="0" />
+    </div>
+
+        <output name="z" for="x y">0</output>
+    </form>
+                
+
+
+</body>
+</html>
