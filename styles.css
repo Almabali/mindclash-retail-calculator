@@ -8,4 +8,15 @@ footer {
     text-align: center;
   }
 
+  div {
+    display: block;
+  }
+
+  /* input {
+    display: block;
+  } */
+
+  img {
+    display: inline-block;
+  }
   

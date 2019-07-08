@@ -3,7 +3,7 @@ function updateOutput() {
     var out = form.elements["z"];
     var outKsDiff = form.elements["ksdiff"];
     var ks = parseInt(form.elements["ks"].value);
-    var freeCred = parseInt(form.elements["freeCred"].value);
+    var freeCred = form.elements["freecred"];
 
     var a1 = parseInt(form.elements["a1"].value);
     var a2 = parseInt(form.elements["a2"].value);
